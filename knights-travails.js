@@ -10,10 +10,9 @@ const knightMoves = (startCoord = [3, 3], goalCoord = [4, 3]) => {
 
     const path = chessboard.findPath(currCoord[0], currCoord[1]);
     path.forEach((coordinate) => {
-      if (chessboard.boolBoard[coordinate[0]][coordinate[1]]) return;
+      if (chessboard.board[coordinate[0]][coordinate[1]] !== null) return;
       fifo.push(coordinate);
-      chessboard.boolBoard[coordinate[0]][coordinate[1]] = true;
-      chessboard.coordBoard[coordinate[0]][coordinate[1]] = [
+      chessboard.board[coordinate[0]][coordinate[1]] = [
         currCoord[0],
         currCoord[1],
       ];
@@ -24,7 +23,7 @@ const knightMoves = (startCoord = [3, 3], goalCoord = [4, 3]) => {
   let currCoord = goalCoord;
   while (currCoord[0] !== startCoord[0] || currCoord[1] !== startCoord[1]) {
     path.unshift(currCoord);
-    currCoord = chessboard.coordBoard[currCoord[0]][currCoord[1]];
+    currCoord = chessboard.board[currCoord[0]][currCoord[1]];
   }
   path.unshift(startCoord);
 

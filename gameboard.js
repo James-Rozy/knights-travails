@@ -1,16 +1,9 @@
 const chessboard = (size = 8) => {
-  const boolBoard = [];
-  for (let i = 0; i < size; i++) {
-    const row = [];
-    for (let j = 0; j < size; j++) row.push(false);
-    boolBoard.push(row);
-  }
-
-  const coordBoard = [];
+  const board = [];
   for (let i = 0; i < size; i++) {
     const row = [];
     for (let j = 0; j < size; j++) row.push(null);
-    coordBoard.push(row);
+    board.push(row);
   }
 
   const checkCoordinate = (x, y) => {
@@ -35,7 +28,7 @@ const chessboard = (size = 8) => {
       .filter((coordinate) => checkCoordinate(coordinate[0], coordinate[1]));
   };
 
-  return { boolBoard, coordBoard, checkCoordinate, findPath };
+  return { board, checkCoordinate, findPath };
 };
 
 module.exports = {
