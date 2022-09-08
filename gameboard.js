@@ -1,4 +1,4 @@
-const gameboard = (size = 8) => {
+const chessboard = (size = 8) => {
   const boolBoard = [];
   for (let i = 0; i < size; i++) {
     const row = [];
@@ -39,5 +39,5 @@ const gameboard = (size = 8) => {
 };
 
 module.exports = {
-  gameboard,
+  chessboard,
 };
